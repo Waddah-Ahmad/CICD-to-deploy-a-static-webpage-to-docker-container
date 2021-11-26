@@ -13,9 +13,9 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'ssh waddah@192.168.56.52 "cd /root/mini-project/CICD-to-deploy-a-static-webpage-to-docker-container ;\
+                sh 'ssh waddah@192.168.56.52 "cd /home/waddah/miniproject/CICD-to-deploy-a-static-webpage-to-docker-container ;\
 		sh sudo su;\
-		sh mkdir from jenkins"'
+		sh nano fromjenkins"'
             }
         }
     }
