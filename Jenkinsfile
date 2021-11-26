@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build ') { 
             steps {
-                echo "this is build stage where we install all the depensences and packages for the environment"
+                echo "this is build artifacts stage where we install all the depensences and packages for the environment"
             }
         }
         stage('Test') { 
@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo "this is deployment stage " 
+                sh 'ssh waddah@192.168.56.52 "cd /root/mini-project/CICD-to-deploy-a-static-webpage-to-docker-container ;\
+		sh sudo su;\
+		sh mkdir from jenkins"'
             }
         }
     }
