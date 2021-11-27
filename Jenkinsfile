@@ -14,8 +14,8 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'ssh -o StricHostKeyChecking=no waddah@192.168.56.52 "cd /home/waddah/miniproject/CICD-to-deploy-a-static-webpage-to-docker-container ;\
-		sh sudo su ;\
-		sh nano fromjenkins"'
+		sudo su ;\
+		nano fromjenkins"'
             }
         }
     }
