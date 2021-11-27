@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'ssh waddah@192.168.56.52 "cd /home/waddah/miniproject/CICD-to-deploy-a-static-webpage-to-docker-container ;\
 		sudo su ;\
-		nano fromjenkins"'
+		mkdir from_jenkins"'
             }
         }
     }
