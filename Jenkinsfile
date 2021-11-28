@@ -19,7 +19,7 @@ pipeline {
                 sudo su; \
                 # docker container commands to stop and start a new container witnin any update
                 docker container rm -f page1; \
-                docker build -f Dockerfile --tag proj:miniproject; \
+                docker build -f Dockerfile --tag proj:miniproject . ; \
                 docker container run -it -d --name page1 -p 8080:80 proj:miniproject "'''
             }
         }
