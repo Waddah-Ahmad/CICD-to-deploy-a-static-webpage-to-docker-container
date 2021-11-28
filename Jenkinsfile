@@ -15,14 +15,14 @@ pipeline {
             steps {
                 sh '''ssh -o StrictHostKeyChecking=no jenkins@192.168.56.52 "cd CICD-to-deploy-a-static-webpage-to-docker-container; \
                 # docker container commands to stop
-                sudo docker container rm -f web:latest;\
-                sudo docker container rm -f page1;\
+                sudo docker container stop web1:latest;\
+                sudo docker container rm web1:latest;\
                 sudo docker image rm -f web:latest;\
                 # cloning the repo
                 git clone https://github.com/Waddah-Ahmad/CICD-to-deploy-a-static-webpage-to-docker-container.git ; \
                 #start a new container witnin any update
                 sudo docker build -f Dockerfile --tag web:latest . ; \
-                sudo docker container run -it -d --name page1 -p 8080:80 web:latest "'''
+                sudo docker container run -it -d --name page1 -p 8080:80 web1:latest "'''
             }
         }
     }
