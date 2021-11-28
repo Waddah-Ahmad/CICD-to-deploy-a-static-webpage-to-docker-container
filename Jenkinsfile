@@ -14,6 +14,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh '''ssh -o StrictHostKeyChecking=no jenkins@192.168.56.52 "cd CICD-to-deploy-a-static-webpage-to-docker-container; \
+                sudo apt update;\
                 # cloning the repo
                 git clone https://github.com/Waddah-Ahmad/CICD-to-deploy-a-static-webpage-to-docker-container.git ; \
                 # docker container commands to stop and start a new container witnin any update
