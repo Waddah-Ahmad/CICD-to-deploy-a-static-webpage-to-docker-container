@@ -16,6 +16,7 @@ pipeline {
                 sh '''ssh -o StrictHostKeyChecking=no jenkins@192.168.56.52 "cd CICD-to-deploy-a-static-webpage-to-docker-container; \
                 # cloning the repo
                 git pull origin master; \
+                sudo su; \
                 # docker container commands to stop and start a new container witnin any update
                 docker container rm -f page1; \
                 docker build -f Dockerfile --tag proj:miniproject; \
