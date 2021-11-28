@@ -16,6 +16,7 @@ pipeline {
                 sh '''ssh -o StrictHostKeyChecking=no jenkins@192.168.56.52 "cd CICD-to-deploy-a-static-webpage-to-docker-container; \
                 # docker container commands to stop
                 docker container rm -f web:latest;\
+                docker container rm -f page1;\
                 docker image rm -f web:latest;\
                 # cloning the repo
                 git clone https://github.com/Waddah-Ahmad/CICD-to-deploy-a-static-webpage-to-docker-container.git ; \
