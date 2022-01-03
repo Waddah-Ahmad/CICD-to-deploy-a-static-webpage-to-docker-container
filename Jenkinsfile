@@ -14,11 +14,11 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh '''ssh -o StrictHostKeyChecking=no jenkins@192.168.56.52 "cd /home/waddah/miniproject/CICD-to-deploy-a-static-webpage-to-docker-container; \
+                # cloning the repo
+                sudo git url: 'https://github.com/Waddah-Ahmad/CICD-to-deploy-a-static-webpage-to-docker-container.git' ; \
                 # docker container commands to stop
                 sudo docker container stop web;\
                 sudo docker container rm -f web;\
-                # cloning the repo
-                sudo git url: 'https://github.com/Waddah-Ahmad/CICD-to-deploy-a-static-webpage-to-docker-container.git' ; \
                 #start a new container witnin any update
                 sudo docker build -f Dockerfile --tag page:2.0 . ; \
                 sudo docker container run -it -d --name web -p 8080:80 page:2.0 "'''
