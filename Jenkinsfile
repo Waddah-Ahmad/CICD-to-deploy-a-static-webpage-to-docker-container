@@ -16,14 +16,12 @@ pipeline {
                 sh '''ssh -o StrictHostKeyChecking=no jenkins@192.168.56.52 "cd /home/waddah/miniproject/CICD-to-deploy-a-static-webpage-to-docker-container; \
                 # docker container commands to stop
                 sudo docker container stop web;\
-                # removing the stopped container 
                 sudo docker container rm -f web;\
                 # cloning the repo
                 sudo git pull origin master ; \
-                # building the new image with new updates that commited to git repo
-                sudo docker build -f Dockerfile --tag page:0.0 . ; \
-                # start a new container witnin any update
-                sudo docker container run -it -d --name web -p 8080:80 page:0.0 "'''
+                #start a new container witnin any update
+                sudo docker build -f Dockerfile --tag page:2.0 . ; \
+                sudo docker container run -it -d --name web -p 8080:80 page:2.0 "'''
             }
         }
     }
